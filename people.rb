@@ -36,5 +36,13 @@ Chris.greeting
 Christina = Student.new("Christina")
 Christina.greeting
 
-Instructor.teach
-Student.learn
+Chris.teach
+Christina.learn
+
+Christina.teach
+
+#You can't call teach on the Student instance because the student 
+#instance doesn't have the method teach. It hasn't inherited it 
+#because it Student only inherits from Person.
+
+
