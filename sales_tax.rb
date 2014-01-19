@@ -37,9 +37,6 @@ class ExemptGoods < Goods
 	end
 end
 
-#Do I need to write another price + calculate tax here?
-
-
 
 class ImportedGoods < Goods
 
@@ -78,7 +75,6 @@ pills = ExemptGoods.new(1, "packet of headache pills", 9.75)
 imported_chocolates2 = ExemptImportedGoods.new(1, "box of imported chocolates", 11.25)
 
 
-
 puts
 puts "INPUT:"
 puts
@@ -88,33 +84,46 @@ puts "#{music_cd.quantity} #{music_cd.name} at $#{music_cd.price}"
 puts "#{chocolate_bar.quantity} #{chocolate_bar.name} at $#{chocolate_bar.price}"
 puts
 puts "Input 2:"
-puts "#{imported_chocolates1.quantity} #{imported_chocolates1.name} at #{imported_chocolates1.price}"
-puts "#{imported_perfume1.quantity} #{imported_perfume1.name} at #{imported_perfume1.price}"
+puts "#{imported_chocolates1.quantity} #{imported_chocolates1.name} at $#{imported_chocolates1.price}"
+puts "#{imported_perfume1.quantity} #{imported_perfume1.name} at $#{imported_perfume1.price}"
 puts 
 puts "Input 3:"
-puts "#{imported_perfume2.quantity} #{imported_perfume2.name} at #{imported_perfume2.price}"
-puts "#{domestic_perfume.quantity} #{domestic_perfume.name} at #{domestic_perfume.price}"
-puts "#{pills.quantity} #{pills.name} at #{pills.price}"
-puts "#{imported_chocolates2.quantity} #{imported_chocolates2.name} at #{imported_chocolates2.price}"
-
-
-
-
+puts "#{imported_perfume2.quantity} #{imported_perfume2.name} at $#{imported_perfume2.price}"
+puts "#{domestic_perfume.quantity} #{domestic_perfume.name} at $#{domestic_perfume.price}"
+puts "#{pills.quantity} #{pills.name} at $#{pills.price}"
+puts "#{imported_chocolates2.quantity} #{imported_chocolates2.name} at $#{imported_chocolates2.price}"
+puts
 
 #===================
 #     OUTPUT
 #===================
+ 
+puts
+puts "OUTPUT"
+puts
+puts "Output 1:"
+puts "#{book.quantity} #{book.name} at $#{book.calculate_total}"
+puts "#{music_cd.quantity} #{music_cd.name} at $#{music_cd.calculate_total.round(2)}"
+puts "#{chocolate_bar.quantity} #{chocolate_bar.name} at $#{chocolate_bar.calculate_total}"
+puts "Sales Taxes: $ #{(book.calculate_tax + music_cd.calculate_tax + chocolate_bar.calculate_tax).round(2)}"
+puts "Total: $#{(book.calculate_total + music_cd.calculate_total + chocolate_bar.calculate_total).round(2)}"
+puts
+puts "Output 2:"
+puts "#{imported_chocolates1.quantity} #{imported_chocolates1.name} at $#{imported_chocolates1.calculate_total}"
+puts "#{imported_perfume1.quantity} #{imported_perfume1.name} at $#{imported_perfume1.calculate_total}"
+puts "Sales Taxes: $ #{(imported_chocolates1.calculate_tax + imported_perfume1.calculate_tax).round(2)}"
+puts "Total: $#{(imported_chocolates1.calculate_total + imported_perfume1.calculate_total).round(2)}"
+puts
+puts "Output 3:"
+puts "#{imported_perfume2.quantity} #{imported_perfume2.name} at $#{imported_perfume2.calculate_total}"
+puts "#{domestic_perfume.quantity} #{domestic_perfume.name} at $#{domestic_perfume.calculate_total}"
+puts "#{pills.quantity} #{pills.name} at $#{pills.calculate_total}"
+puts "#{imported_chocolates2.quantity} #{imported_chocolates2.name} at $#{imported_chocolates2.calculate_total}"
+puts "Sales Taxes: $ #{(imported_perfume2.calculate_tax + domestic_perfume.calculate_tax + pills.calculate_tax + imported_chocolates2.calculate_tax).round(2)}"
+puts "Total: $#{(imported_perfume2.calculate_total + domestic_perfume.calculate_total + pills.calculate_total + imported_chocolates2.calculate_total).round(2)}"
 
 
-#Call each object as an instance of a class?
 
-#Remember to convert to two digit floats.
-#Add dollar signs?
-
-#receipt lists:
-#name of all items and their price including tax 
-#total cost of items
-#total amount of sales tax paid
 
 #=================================
 #     NOTES FROM CODE REVIEW
